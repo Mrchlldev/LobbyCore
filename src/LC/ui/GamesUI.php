@@ -30,34 +30,25 @@ class GamesUI {
             }
             switch($data){
                 case 0:
-                    $this->plugin->getServer()->getCommandMap()->dispatch($player, $this->plugin->getConfig()->get("CommandForm1"));
+                    $this->plugin->getServer()->getCommandMap()->dispatch($player, "sendto economy");
                     break;
                 case 1:
-                    $this->plugin->getServer()->getCommandMap()->dispatch($player, $this->plugin->getConfig()->get("CommandForm2"));
+                    $player->sendMessage("§l§cERROR»§r §fServer Offline !!");
                     break;
                 case 2:
-                    $this->plugin->getServer()->getCommandMap()->dispatch($player, $this->plugin->getConfig()->get("CommandForm3"));
+                    $player->sendMessage("§l§cERROR»§r §fServer Offline !!");
                     break;
                 case 3:
-                    $this->plugin->getServer()->getCommandMap()->dispatch($player, $this->plugin->getConfig()->get("CommandForm4"));
-                    break;
-                case 4:
-                    $this->plugin->getServer()->getCommandMap()->dispatch($player, $this->plugin->getConfig()->get("CommandForm5"));
-                    break;
-                case 5:
-                    $this->plugin->getServer()->getCommandMap()->dispatch($player, $this->plugin->getConfig()->get("CommandForm6"));
+                    $this->plugin->getServer()->getCommandMap()->dispatch($player, "Succes");
                     break;
             }
         });
-        $form->setTitle(MG::RED . $this->plugin->getConfig()->get("GameTitle"));
-        $form->setContent(MG::RED . $this->plugin->getConfig()->get("GameInfo"));
-        $form->addButton(MG::RED . $this->plugin->getConfig()->get("GameForm1"));
-        $form->addButton(MG::RED . $this->plugin->getConfig()->get("GameForm2"));
-        $form->addButton(MG::RED . $this->plugin->getConfig()->get("GameForm3"));
-        $form->addButton(MG::RED . $this->plugin->getConfig()->get("GameForm4"));
-        $form->addButton(MG::RED . $this->plugin->getConfig()->get("GameForm5"));
-        $form->addButton(MG::RED . $this->plugin->getConfig()->get("GameForm6"));
-        $form->addButton(MG::RED . "Cerrar");
+        $form->setTitle("Nichiwa - Teleporter");
+        $form->setContent("Click button below to teleport");
+        $form->addButton("Survival Economy\n§eStats §0: §aONLINE");
+        $form->addButton("Duels/PvP\n§eStats §0: §cOFFLINE");
+        $form->addButton("Parkour\n§eStats §0: §cOFFLINE");
+        $form->addButton("§cClose", 0, "textures/blocks/barrier");
         $form->sendToPlayer($player);
     }
 }
